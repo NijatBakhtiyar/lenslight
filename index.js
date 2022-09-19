@@ -19,6 +19,13 @@ app.use(express.static("public"));
 app.use(express.json());
 
 // routes
+// app.get('/', (req, res) => {
+//   res.render('index')
+// })
+// app.get('/about', (req, res) => {
+//   res.render('about')
+// })
+
 app.use("/", pageRoute);
 app.use("/about", pageRoute);
 app.use("/photos", photoRoute);
