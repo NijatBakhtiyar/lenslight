@@ -7,16 +7,36 @@
         </div>
       </div>
       <div class="col-md-8 col-sm-9">
-        <div class="navbar-area">
+        <div class="navbar-area"  style="float: right">
           <nav class="site-navbar">
             <ul>
-              <li><a class="active" href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/photos">Gallery</a></li>
-              <li><a href="/services">Services</a></li>
+              <li>
+                <a class="<%= link === 'index' && 'active' %>" href="/">Home</a>
+              </li>
+              <li>
+                <a class="<%= link === 'about' && 'active' %>" href="/about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a <% if (link === 'photos') { %>class="active" <% } %> href="/photos"
+                  >Photos</a
+                >
+              </li>
+              <li>
+                <a <% if (link === 'login') { %>class="active" <% } %> href="/login"
+                  >Login</a
+                >
+              </li>
+              <li>
+                <a <% if (link === 'register') { %>class="active" <% } %> href="/register"
+                  >Register</a
+                >
+              </li>
+              <!-- <li><a href="/services">Services</a></li>
               <li><a href="/projects">Projects</a></li>
               <li><a href="/blog">Blog</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/contact">Contact</a></li> -->
             </ul>
             <button class="nav-toggler">
               <span></span>
@@ -24,7 +44,9 @@
           </nav>
         </div>
       </div>
-      <div class="col-md-2 di_none">
+
+      
+      <!-- <div class="col-md-2 di_none">
         <ul class="email text_align_right">
           <li><a href="Javascript:void(0)">Login</a></li>
           <li>
@@ -33,7 +55,7 @@
             ></a>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </header>

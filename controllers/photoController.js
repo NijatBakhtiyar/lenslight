@@ -3,10 +3,10 @@ import Photo from "../models/photoModel.js";
 const createPhoto = async (req, res) => {
   try {
     const photo = await Photo.create(req.body);
-    ` res.status(201).json({
+    res.status(201).json({
       success: true,
       photo,
-    });`;
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -32,13 +32,9 @@ const updatePhoto = async (req, res) => {
 };
 
 const getAllPhotos = async (req, res) => {
-  console.log(req.body);
-
   try {
     const photos = await Photo.find({});
-    res.status(200).render("photos", {
-      photos,
-    });
+    res.status(200).render("photos", { photos, link: "photos" });
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -47,4 +43,16 @@ const getAllPhotos = async (req, res) => {
   }
 };
 
-export { createPhoto, getAllPhotos, updatePhoto };
+const getPhoto = async (req, res) => {
+  try {
+    const photo = await Photo.findById(req.params.id);
+    res.status(200).render("photo", { photo, link: "photos" });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};
+
+export { createPhoto, getAllPhotos, updatePhoto, getPhoto };
